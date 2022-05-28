@@ -79,8 +79,6 @@ async function getContract(contractAddress, abi) {
 async function mint721() {
   let src = document.getElementById("image").files[0];
   const { cid } = await client.add(src);
-  debugger
-  console.log(cid.toString());
   const tokenURI = cid.toString();
   var contract721 = await getContract(tokenDetails.contract721Address, tokenDetails.abi721);
   if(!(await contract721.isApprovedForAll(accounts, tokenDetails.transferProxy))) {
